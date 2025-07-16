@@ -1,35 +1,29 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import HeaderBar from './components/HeaderBar/HeaderBar'
+import PostSection from './components/PostSection/PostSection'
+import SubredditsBar from './components/SubredditsBar/SubredditsBar'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className='grid grid-cols-[1fr_350px] grid-rows-[auto_1fr] min-h-screen gap-4 bg-stone-200'>
+      <header className='col-span-2 bg-stone-50 shadow-xl p-8 rounded'>
+        <HeaderBar />
+      </header>
+      <main className='overflow-y-auto bg-stone-200 rounded'> 
+        <PostSection />
+      </main>
+      <aside className='p-4 bg-stone-50 rounded shadow-xl'>
+        <SubredditsBar />
+      </aside>
+      
+    </div>
   )
 }
 
 export default App
+
+// NEED TO UPDATE NODE BEFORE ADDING TAILWIND ETC!!!!
+// stone in <main> is just to see the sections clearly. 
